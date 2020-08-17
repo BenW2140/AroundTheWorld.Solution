@@ -5,7 +5,7 @@ namespace AroundTheWorld.Models
   public class AroundTheWorldContext : DbContext
   {
     public AroundTheWorldContext(DbContextOptions options) : base(options) {}
-    DbSet<Review> Reviews { get; set; }
+    public DbSet<Review> Reviews { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
       builder.Entity<Review>()
