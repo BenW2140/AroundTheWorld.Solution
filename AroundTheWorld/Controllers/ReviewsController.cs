@@ -16,9 +16,20 @@ namespace AroundTheWorld.Controllers
       _db = db;
     }
     [HttpGet]
-    public ActionResult<IEnumerable<Review>> Get()
+    public ActionResult<IEnumerable<Review>> Get(string country, string city)
     {
-      return _db.Reviews.ToList();
+      var query = _db.Reviews.AsQueryable();
+
+      if (country != null)
+      {
+        query = query.Where(entry => entry.Country == country);
+      }
+      if (country != null)
+      {
+        query = query.Where(entry => entry.City == city);
+      }
+
+      return query.ToList();
     }
 
     [HttpPost]
