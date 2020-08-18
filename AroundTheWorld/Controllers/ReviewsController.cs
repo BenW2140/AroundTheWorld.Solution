@@ -6,30 +6,20 @@ using System.Collections.Generic;
 
 namespace AroundTheWorld.Controllers
 {
-  [Route("api/[controller]")]
+  [ApiVersion("1.0")]
+  [Route("api/{v:1.0}/[controller]")]
   [ApiController]
-  public class ReviewsController : ControllerBase
+  public class ReviewsV1Controller : ControllerBase
   {
     private AroundTheWorldContext _db;
-    public ReviewsController(AroundTheWorldContext db)
+    public ReviewsV1Controller(AroundTheWorldContext db)
     {
       _db = db;
     }
     [HttpGet]
-    public ActionResult<IEnumerable<Review>> Get(string country, string city)
+    public ActionResult<IEnumerable<Review>> Get()
     {
-      var query = _db.Reviews.AsQueryable();
-
-      if (country != null)
-      {
-        query = query.Where(entry => entry.Country == country);
-      }
-      if (country != null)
-      {
-        query = query.Where(entry => entry.City == city);
-      }
-
-      return query.ToList();
+      return _db.Reviews.ToList();
     }
 
     [HttpPost]

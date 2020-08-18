@@ -3,14 +3,16 @@ using System;
 using AroundTheWorld.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AroundTheWorld.Migrations
 {
     [DbContext(typeof(AroundTheWorldContext))]
-    partial class AroundTheWorldContextModelSnapshot : ModelSnapshot
+    [Migration("20200818194539_AddDestinationTable")]
+    partial class AddDestinationTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

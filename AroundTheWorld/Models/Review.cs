@@ -11,9 +11,5 @@ namespace AroundTheWorld.Models
     [Required]
     [Range(0, 10)]
     public int Rating { get; set; }
-    [Required]
-    public string Country { get; set; }
-    [Required]
-    public string City { get; set; }
   }
 }
