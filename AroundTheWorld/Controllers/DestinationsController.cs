@@ -6,8 +6,7 @@ using System.Collections.Generic;
 
 namespace AroundTheWorld.Controllers
 {
-  [ApiVersion("1.0")]
-  [Route("api/{v:1.0}/[controller]")]
+  [Route("api/[controller]")]
   [ApiController]
   public class DestinationsV1Controller : Controller
   {
